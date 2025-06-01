@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeContorller;
@@ -47,4 +48,10 @@ Route::post('/banner/store', [BannerController::class,'banner_store'])->name('ba
 Route::get('/banner/edit/{id}', [BannerController::class,'banner_edit'])->name('banner.edit');
 Route::post('/banner/update/{id}', [BannerController::class,'banner_update'])->name('banner.update');
 Route::get('/banner/delete/{id}', [BannerController::class,'banner_delete'])->name('banner.delete');
+
+// About
+Route::get('/about/list', [AboutController::class,'about_list'])->name('about.list');
+Route::get('/about/creat', [AboutController::class,'about_create'])->name('about.create');
+Route::post('/about/store', [AboutController::class,'about_store'])->name('about.store');
+Route::get('/about/edit', [AboutController::class,'about_edit'])->name('about.edit');
 

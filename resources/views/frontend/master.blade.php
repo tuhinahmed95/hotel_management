@@ -94,26 +94,19 @@
       <section class="banner_main">
          <div id="myCarousel" class="carousel slide banner" data-ride="carousel">
             <ol class="carousel-indicators">
-               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-               <li data-target="#myCarousel" data-slide-to="1"></li>
-               <li data-target="#myCarousel" data-slide-to="2"></li>
+                @foreach($banners as $key => $banner)
+                <li data-target="#myCarousel" data-slide-to="{{ $key }}" class="{{ $key == 0 ? 'active' : '' }}"></li>
+            @endforeach
             </ol>
 
             <div class="carousel-inner">
                 @foreach ($banners as $banner)
-                <div class="carousel-item active">
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                     <img class="first-slide" src="{{ asset('uploads/banner') }}/{{ $banner->b_image }}" alt="First slide">
                     <div class="container">
                     </div>
                 </div>
                  @endforeach
-                <div class="carousel-item">
-                    <img class="second-slide" src="{{ asset('frontend/assets/images/banner2.jpg') }}" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="third-slide" src="{{ asset('frontend/assets/images/banner3.jpg') }}" alt="Third slide">
-                </div>
-
             </div>
 
             <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
